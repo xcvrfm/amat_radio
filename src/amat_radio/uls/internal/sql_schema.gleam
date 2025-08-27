@@ -42,7 +42,7 @@ fn new_row(line: String) -> SchemaRow {
     |> list.filter(fn(s) { !string.is_empty(s) })
   {
     [c, t, ..] ->
-      SchemaRow(quote_column(c), map_column_type(t), nullable:, comma:)
+      SchemaRow(format_column(c), map_column_type(t), nullable:, comma:)
     _ -> panic as "Error parsing CleanedRow"
   }
 }
@@ -63,8 +63,9 @@ fn map_column_type(col_type: String) -> String {
 }
 
 // Some reserved keywords are used, so we need to quote the columns
-fn quote_column(col: String) -> String {
-  "\"" <> col <> "\""
+// We also need the columns to be in lower case to be converted to gleam
+fn format_column(col: String) -> String {
+  "\"" <> string.lowercase(col) <> "\""
 }
 
 /// Convert a SchemaRow to String
