@@ -109,7 +109,7 @@ pub fn process_sql_schema(
 ) {
   case file_stream.read_line(in_stream) {
     Ok(line) -> {
-      let assert Ok(_) = case echo string.trim(line) |> process_line {
+      let assert Ok(_) = case string.trim(line) |> process_line {
         "" -> Ok(Nil)
         str -> file_stream.write_chars(out_stream, str <> "\n")
       }
