@@ -45,6 +45,7 @@ file_streams = { version = ">= 1.6.0 and < 2.0.0" }
 gleam_http = { version = ">= 4.1.1 and < 5.0.0" }
 gleam_httpc = { version = ">= 5.0.0 and < 6.0.0" }
 gleam_stdlib = { version = ">= 0.44.0 and < 2.0.0" }
+gleam_time = { version = ">= 1.4.0 and < 2.0.0" }
 gleeunit = { version = ">= 1.0.0 and < 2.0.0" }
 gtempo = { version = ">= 7.2.2 and < 8.0.0" }
 pog = { version = ">= 4.1.0 and < 5.0.0" }
