@@ -1,10 +1,18 @@
 import amat_radio/uls
 import argv
 import gleam/io
-import gleam/list
 import gleam/result
 import tempo/date
 import tempo/instant
+
+type AppError {
+  UlsModuleError(e: uls.UlsError)
+  InputError(msg: String)
+}
+
+fn input_error(msg: String) {
+  Error(InputError(msg:))
+}
 
 fn print_help() {
   io.println("TODO: implement help message")
@@ -23,35 +31,61 @@ fn today_of_week() {
 
 fn to_day_of_week(day: String) {
   case day {
-    "mon" -> date.Mon
-    "tue" -> date.Tue
-    "wed" -> date.Wed
-    "thu" -> date.Thu
-    "fri" -> date.Fri
-    "sat" -> date.Sat
-    "sun" -> date.Sun
-    _ -> today_of_week()
+    "mon" -> Ok(date.Mon)
+    "tue" -> Ok(date.Tue)
+    "wed" -> Ok(date.Wed)
+    "thu" -> Ok(date.Thu)
+    "fri" -> Ok(date.Fri)
+    "sat" -> Ok(date.Sat)
+    "sun" -> Ok(date.Sun)
+    _ ->
+      input_error(
+        "Unrecognized day of week. Supports mon tue wed thu fri sat sun",
+      )
   }
 }
 
 pub fn main() -> Nil {
   let args = argv.load().arguments
 
-  let _ = case args {
-    ["uls", "fetch_schema", dir] -> uls.fetch_sql_schema(dir)
+  let result = case args {
+    ["uls", "fetch_schema", dir] ->
+      uls.fetch_sql_schema(dir)
+      |> result.map_error(UlsModuleError)
+
     ["uls", "convert_schema", from, to] ->
       uls.convert_sql_schema_to_postgres(from, to)
+      |> result.map_error(UlsModuleError)
+
     ["uls", "fetch_daily_applications", to] ->
       uls.fetch_daily_application_records(today_of_week(), to)
-    ["uls", "fetch_daily_applications", day, to] ->
-      uls.fetch_daily_application_records(to_day_of_week(day), to)
+      |> result.map_error(UlsModuleError)
+
+    ["uls", "fetch_daily_applications", to, day] ->
+      to_day_of_week(day)
+      |> result.try(fn(d) {
+        uls.fetch_daily_application_records(d, to)
+        |> result.map_error(UlsModuleError)
+      })
+
     ["uls", "fetch_daily_licenses", to] ->
       uls.fetch_daily_license_records(today_of_week(), to)
-    ["uls", "fetch_daily_licenses", day, to] ->
-      uls.fetch_daily_license_records(to_day_of_week(day), to)
+      |> result.map_error(UlsModuleError)
+
+    ["uls", "fetch_daily_licenses", to, day] ->
+      to_day_of_week(day)
+      |> result.try(fn(d) {
+        uls.fetch_daily_license_records(d, to)
+        |> result.map_error(UlsModuleError)
+      })
+
     ["uls", ..] -> print_uls_help()
+
     _ -> print_help()
   }
 
-  Nil
+  case result {
+    Ok(n) -> n
+    Error(_) -> io.print_error("error")
+  }
 }
