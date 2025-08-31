@@ -1,12 +1,12 @@
-name = "amat_radio"
+name = "uls_scraper"
 version = "0.0.1"
 
 # Fill out these fields if you intend to generate HTML documentation or publish
 # your project to the Hex package manager.
 #
-description = "A library of tools related to Amatuer Radio."
+description = "A tool to scrape Amatuer Radio data from the FCC's ULS website"
 licences = ["Apache-2.0"]
-repository = { type = "github", user = "xcvrfm", repo = "amat_radio" }
+repository = { type = "github", user = "xcvrfm", repo = "uls_scraper" }
 # links = [{ title = "Website", href = "" }]
 #
 # For a full reference of all the available options, you can have a look at

@@ -1,4 +1,4 @@
-import amat_radio/uls
+import uls_scraper/uls
 import argv
 import gleam/io
 import gleam/result

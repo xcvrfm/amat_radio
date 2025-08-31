@@ -1,6 +1,6 @@
 /// A module to facilitate downloading and working with database files from the FCC's ULS website
-import amat_radio/uls/internal/sql_schema
-import amat_radio/uls/internal/urls
+import uls_scraper/uls/internal/sql_schema
+import uls_scraper/uls/internal/urls
 import file_streams/file_stream
 import file_streams/file_stream_error
 import gleam/http
