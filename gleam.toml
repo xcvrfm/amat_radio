@@ -21,7 +21,8 @@ argv = ">= 1.0.2 and < 2.0.0"
 gtempo = ">= 7.2.2 and < 8.0.0"
 pog = ">= 4.1.0 and < 5.0.0"
 gleam_time = ">= 1.4.0 and < 2.0.0"
-
+gleescript = ">= 1.5.2 and < 2.0.0"
+x10 = { git = "git@github.com:alterationx10/gleam_x10.git", ref = "main" }
 [dev-dependencies]
 gleeunit = ">= 1.0.0 and < 2.0.0"
 squirrel = ">= 4.4.1 and < 5.0.0"
