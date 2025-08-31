@@ -39,7 +39,7 @@ packages = [
   { name = "term_size", version = "1.0.1", build_tools = ["gleam"], requirements = ["gleam_stdlib"], otp_app = "term_size", source = "hex", outer_checksum = "D00BD2BC8FB3EBB7E6AE076F3F1FF2AC9D5ED1805F004D0896C784D06C6645F1" },
   { name = "tom", version = "2.0.0", build_tools = ["gleam"], requirements = ["gleam_stdlib", "gleam_time"], otp_app = "tom", source = "hex", outer_checksum = "74D0C5A3761F7A7D06994755D4D5AD854122EF8E9F9F76A3E7547606D8C77091" },
   { name = "tote", version = "1.0.2", build_tools = ["gleam"], requirements = ["gleam_stdlib"], otp_app = "tote", source = "hex", outer_checksum = "A249892E26A53C668897F8D47845B0007EEE07707A1A03437487F0CD5A452CA5" },
-  { name = "x10", version = "0.0.1", build_tools = ["gleam"], requirements = ["gleam_stdlib"], source = "git", repo = "git@github.com:alterationx10/gleam_x10.git", commit = "974a925f9b8ebc654e141cc8b7fb4c1b74428366" },
+  { name = "x10", version = "0.0.1", build_tools = ["gleam"], requirements = ["gleam_stdlib"], source = "git", repo = "https://github.com/alterationx10/gleam_x10.git", commit = "974a925f9b8ebc654e141cc8b7fb4c1b74428366" },
   { name = "youid", version = "1.5.1", build_tools = ["gleam"], requirements = ["gleam_crypto", "gleam_stdlib", "gleam_time"], otp_app = "youid", source = "hex", outer_checksum = "580E909FD704DB16416D5CB080618EDC2DA0F1BE4D21B490C0683335E3FFC5AF" },
 ]
 
@@ -55,4 +55,4 @@ gleeunit = { version = ">= 1.0.0 and < 2.0.0" }
 gtempo = { version = ">= 7.2.2 and < 8.0.0" }
 pog = { version = ">= 4.1.0 and < 5.0.0" }
 squirrel = { version = ">= 4.4.1 and < 5.0.0" }
-x10 = { git = "git@github.com:alterationx10/gleam_x10.git", ref = "main" }
+x10 = { git = "https://github.com/alterationx10/gleam_x10.git", ref = "main" }
