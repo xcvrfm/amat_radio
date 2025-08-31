@@ -5,7 +5,7 @@ import gleam/http/request
 import gleam/httpc
 import tempo/date
 import uls_scraper/internal/errors
-import uls_scraper/internal/sql_schema
+import uls_scraper/internal/schema_parser
 import uls_scraper/internal/urls
 import x10/x10_result
 
@@ -68,7 +68,7 @@ pub fn convert_sql_schema_to_postgres(
   use out_stream <-
     file_stream.open_write(rel_path_out)
     |> x10_result.use_try_map_error(errors.IOError)
-  let _ = sql_schema.process_sql_schema(in_stream, out_stream)
+  let _ = schema_parser.process_sql_schema(in_stream, out_stream)
   use _ <-
     file_stream.close(in_stream)
     |> x10_result.use_try_map_error(errors.IOError)
