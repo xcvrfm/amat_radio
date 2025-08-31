@@ -1,12 +1,12 @@
 /// A module to facilitate downloading and working with database files from the FCC's ULS website
-import uls_scraper/uls/internal/sql_schema
-import uls_scraper/uls/internal/urls
 import file_streams/file_stream
 import file_streams/file_stream_error
 import gleam/http
 import gleam/http/request
 import gleam/httpc
 import tempo/date
+import uls_scraper/internal/urls
+import uls_scraper/internal/sql_schema
 import x10/x10_result
 
 pub type UlsError {

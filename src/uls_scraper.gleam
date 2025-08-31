@@ -1,9 +1,9 @@
-import uls_scraper/uls
 import argv
 import gleam/io
 import gleam/result
 import tempo/date
 import tempo/instant
+import uls_scraper/internal/uls
 
 type AppError {
   UlsModuleError(e: uls.UlsError)
