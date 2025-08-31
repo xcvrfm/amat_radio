@@ -1,10 +1,9 @@
-import gleam/result
-import gleam/list
-import x10/x10_result
 import file_streams/file_stream
+import gleam/list
+import gleam/result
 import uls_scraper/internal/errors
 import uls_scraper/internal/row_schema
-
+import x10/x10_result
 
 pub type TableSchema {
   TableSchema(table_name: String, rows: List(row_schema.RowSchema))
