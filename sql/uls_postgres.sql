@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS uls_a2
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"spectrum_manager_leasing"	TEXT,
@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS uls_a2
 CREATE TABLE IF NOT EXISTS uls_ac
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -28,10 +28,12 @@ CREATE TABLE IF NOT EXISTS uls_ac
 	"n_number"	TEXT
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_ac (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_ad
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"application_purpose"	TEXT,
@@ -66,7 +68,7 @@ CREATE TABLE IF NOT EXISTS uls_ad
 CREATE TABLE IF NOT EXISTS uls_ag
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"action_requested"	TEXT,
@@ -80,7 +82,7 @@ CREATE TABLE IF NOT EXISTS uls_ag
 CREATE TABLE IF NOT EXISTS uls_ah
 (
 	"record_type"	TEXT	NOT NULL,
-	"unique_system_identifier"	NUMERIC,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY,
 	"uls_file_num"	TEXT,
 	"attachment_desc"	TEXT,
 	"attachment_file_id"	TEXT
@@ -89,7 +91,7 @@ CREATE TABLE IF NOT EXISTS uls_ah
 CREATE TABLE IF NOT EXISTS uls_am
 (
 	"record_type"	TEXT	NOT NULL,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_num"	TEXT,
 	"ebf_number"	TEXT,
 	"callsign"	TEXT,
@@ -108,10 +110,12 @@ CREATE TABLE IF NOT EXISTS uls_am
 	"trustee_name"	TEXT
 );
 
+CREATE INDEX IF NOT EXISTS idx_callsign on uls_am (callsign);
+
 CREATE TABLE IF NOT EXISTS uls_an
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -150,10 +154,12 @@ CREATE TABLE IF NOT EXISTS uls_an
 	"maximum_erp"	NUMERIC
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_an (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_ap
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"agreement_name"	TEXT,
@@ -169,7 +175,7 @@ CREATE TABLE IF NOT EXISTS uls_ap
 CREATE TABLE IF NOT EXISTS uls_as
 (
 	"record_type"	TEXT	NOT NULL,
-	"unique_system_identifier"	NUMERIC,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"callsign"	TEXT,
@@ -179,10 +185,12 @@ CREATE TABLE IF NOT EXISTS uls_as
 	"action_performed"	TEXT
 );
 
+CREATE INDEX IF NOT EXISTS idx_callsign on uls_as (callsign);
+
 CREATE TABLE IF NOT EXISTS uls_at
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"attachment_code"	TEXT,
@@ -195,7 +203,7 @@ CREATE TABLE IF NOT EXISTS uls_at
 CREATE TABLE IF NOT EXISTS uls_bc
 (
 	"record_type"	TEXT	NOT NULL,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"callsign"	TEXT,
@@ -207,10 +215,12 @@ CREATE TABLE IF NOT EXISTS uls_bc
 	"nonparent_type_code"	TEXT
 );
 
+CREATE INDEX IF NOT EXISTS idx_callsign on uls_bc (callsign);
+
 CREATE TABLE IF NOT EXISTS uls_bd
 (
 	"record_type"	TEXT	NOT NULL,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"involves_credit"	TEXT,
@@ -250,7 +260,7 @@ CREATE TABLE IF NOT EXISTS uls_bd
 CREATE TABLE IF NOT EXISTS uls_be
 (
 	"record_type"	TEXT	NOT NULL,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"callsign"	TEXT,
@@ -260,10 +270,12 @@ CREATE TABLE IF NOT EXISTS uls_be
 	"interference_protection"	TEXT
 );
 
+CREATE INDEX IF NOT EXISTS idx_callsign on uls_be (callsign);
+
 CREATE TABLE IF NOT EXISTS uls_bf
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"call_sign"	TEXT,
 	"location_number"	INTEGER,
 	"antenna_number"	INTEGER,
@@ -277,10 +289,12 @@ CREATE TABLE IF NOT EXISTS uls_bf
 	"discontinuance_date"	TEXT
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_bf (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_bl
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"call_sign"	TEXT,
 	"location"	INTEGER,
 	"buildout_code"	INTEGER,
@@ -291,10 +305,12 @@ CREATE TABLE IF NOT EXISTS uls_bl
 	"discontinuance_date"	TEXT
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_bl (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_bo
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"call_sign"	TEXT,
 	"buildout_code"	INTEGER,
 	"buildout_deadline"	TEXT,
@@ -304,10 +320,12 @@ CREATE TABLE IF NOT EXISTS uls_bo
 	"discontinuance_date"	TEXT
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_bo (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_bt
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"applicant_status"	TEXT
@@ -316,7 +334,7 @@ CREATE TABLE IF NOT EXISTS uls_bt
 CREATE TABLE IF NOT EXISTS uls_cd
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"year_sequence"	SMALLINT	NOT NULL,
@@ -332,7 +350,7 @@ CREATE TABLE IF NOT EXISTS uls_cd
 CREATE TABLE IF NOT EXISTS uls_cf
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"item_type_indicator"	TEXT,
@@ -352,7 +370,7 @@ CREATE TABLE IF NOT EXISTS uls_cf
 CREATE TABLE IF NOT EXISTS uls_cg
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -396,10 +414,12 @@ CREATE TABLE IF NOT EXISTS uls_cg
 	"status_date"	TIMESTAMP
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_cg (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_co
 (
 	"record_type"	TEXT	NOT NULL,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_num"	TEXT,
 	"callsign"	TEXT,
 	"comment_date"	TEXT,
@@ -408,10 +428,12 @@ CREATE TABLE IF NOT EXISTS uls_co
 	"status_date"	TIMESTAMP
 );
 
+CREATE INDEX IF NOT EXISTS idx_callsign on uls_co (callsign);
+
 CREATE TABLE IF NOT EXISTS uls_cp
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -426,10 +448,12 @@ CREATE TABLE IF NOT EXISTS uls_cp
 	"status_date"	TIMESTAMP
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_cp (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_cs
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"call_sign"	TEXT,
 	"location_number"	INTEGER,
@@ -442,10 +466,12 @@ CREATE TABLE IF NOT EXISTS uls_cs
 	"status_date"	TIMESTAMP
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_cs (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_em
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -462,10 +488,12 @@ CREATE TABLE IF NOT EXISTS uls_em
 	"emission_sequence_id"	INTEGER
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_em (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_en
 (
 	"record_type"	TEXT	NOT NULL,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -496,10 +524,12 @@ CREATE TABLE IF NOT EXISTS uls_en
 	"linked_callsign"	TEXT
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_en (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_f2
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -518,10 +548,12 @@ CREATE TABLE IF NOT EXISTS uls_f2
 	"trans_meth"	TEXT
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_f2 (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_fa
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -537,10 +569,12 @@ CREATE TABLE IF NOT EXISTS uls_fa
 	"proof_of_passing"	TEXT
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_fa (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_fc
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"coordination_number"	TEXT,
@@ -553,7 +587,7 @@ CREATE TABLE IF NOT EXISTS uls_fc
 CREATE TABLE IF NOT EXISTS uls_ff
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY,
 	"callsign"	TEXT,
 	"location_number"	INTEGER,
 	"antenna_number"	INTEGER,
@@ -567,10 +601,12 @@ CREATE TABLE IF NOT EXISTS uls_ff
 	"status_date"	TIMESTAMP
 );
 
+CREATE INDEX IF NOT EXISTS idx_callsign on uls_ff (callsign);
+
 CREATE TABLE IF NOT EXISTS uls_fr
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -601,10 +637,12 @@ CREATE TABLE IF NOT EXISTS uls_fr
 	"date_first_used"	TIMESTAMP
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_fr (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_fs
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"call_sign"	TEXT,
 	"location_number"	INTEGER,
 	"antenna_number"	INTEGER,
@@ -616,10 +654,12 @@ CREATE TABLE IF NOT EXISTS uls_fs
 	"status_date"	TIMESTAMP
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_fs (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_ft
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -631,10 +671,12 @@ CREATE TABLE IF NOT EXISTS uls_ft
 	"frequency_type_code"	TEXT
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_ft (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_hd
 (
 	"record_type"	TEXT	NOT NULL,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -694,20 +736,24 @@ CREATE TABLE IF NOT EXISTS uls_hd
 	"payment_cert_900"	TEXT
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_hd (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_hs
 (
 	"record_type"	TEXT	NOT NULL,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"callsign"	TEXT,
 	"log_date"	TEXT,
 	"code"	TEXT
 );
 
+CREATE INDEX IF NOT EXISTS idx_callsign on uls_hs (callsign);
+
 CREATE TABLE IF NOT EXISTS uls_ia
 (
 	"record_type"	TEXT	NOT NULL,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -720,10 +766,12 @@ CREATE TABLE IF NOT EXISTS uls_ia
 	"international_fax"	TEXT
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_ia (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_ir
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"call_sign"	TEXT,
 	"location_number"	INTEGER,
@@ -738,10 +786,12 @@ CREATE TABLE IF NOT EXISTS uls_ir
 	"a_irac_status_code"	SMALLINT
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_ir (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_la
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY,
 	"callsign"	TEXT,
 	"attachment_code"	TEXT,
 	"attachment_desc"	TEXT,
@@ -750,10 +800,12 @@ CREATE TABLE IF NOT EXISTS uls_la
 	"action_performed"	TEXT
 );
 
+CREATE INDEX IF NOT EXISTS idx_callsign on uls_la (callsign);
+
 CREATE TABLE IF NOT EXISTS uls_l2
 (
 	"record_type"	TEXT	NOT NULL,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -769,10 +821,12 @@ CREATE TABLE IF NOT EXISTS uls_l2
 	"status_date"	TIMESTAMP
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_l2 (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_lf
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY,
 	"callsign"	TEXT,
 	"location_number"	INTEGER,
 	"loc_freeform_cond_type"	TEXT,
@@ -783,19 +837,23 @@ CREATE TABLE IF NOT EXISTS uls_lf
 	"status_date"	TIMESTAMP
 );
 
+CREATE INDEX IF NOT EXISTS idx_callsign on uls_lf (callsign);
+
 CREATE TABLE IF NOT EXISTS uls_lh
 (
 	"record_type"	TEXT	NOT NULL,
-	"unique_system_identifier"	NUMERIC,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY,
 	"call_sign"	TEXT,
 	"attachment_desc"	TEXT,
 	"attachment_file_id"	TEXT
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_lh (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_lm
 (
 	"record_type"	TEXT	NOT NULL,
-	"unique_system_identifier"	NUMERIC,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"callsign"	TEXT,
@@ -805,10 +863,12 @@ CREATE TABLE IF NOT EXISTS uls_lm
 	"status_date"	TIMESTAMP
 );
 
+CREATE INDEX IF NOT EXISTS idx_callsign on uls_lm (callsign);
+
 CREATE TABLE IF NOT EXISTS uls_lo
 (
 	"record_type"	TEXT	NOT NULL,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -860,10 +920,12 @@ CREATE TABLE IF NOT EXISTS uls_lo
 	"earth_agree"	TEXT
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_lo (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_ls
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"call_sign"	TEXT,
 	"location_number"	INTEGER,
 	"special_condition_type"	TEXT,
@@ -872,10 +934,12 @@ CREATE TABLE IF NOT EXISTS uls_ls
 	"status_date"	TIMESTAMP
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_ls (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_mc
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -892,10 +956,12 @@ CREATE TABLE IF NOT EXISTS uls_mc
 	"undefined_partitioned_area"	INTEGER
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_mc (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_me
 (
 	"record_type"	TEXT	NOT NULL,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"callsign"	TEXT,
@@ -903,10 +969,12 @@ CREATE TABLE IF NOT EXISTS uls_me
 	"action_performed"	TEXT
 );
 
+CREATE INDEX IF NOT EXISTS idx_callsign on uls_me (callsign);
+
 CREATE TABLE IF NOT EXISTS uls_mh
 (
 	"record_type"	TEXT	NOT NULL,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"callsign"	TEXT,
@@ -915,10 +983,12 @@ CREATE TABLE IF NOT EXISTS uls_mh
 	"channel_plan"	TEXT
 );
 
+CREATE INDEX IF NOT EXISTS idx_callsign on uls_mh (callsign);
+
 CREATE TABLE IF NOT EXISTS uls_mf
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -929,10 +999,12 @@ CREATE TABLE IF NOT EXISTS uls_mf
 	"defined_partition_area"	TEXT
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_mf (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_mi
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -941,10 +1013,12 @@ CREATE TABLE IF NOT EXISTS uls_mi
 	"license_type_code"	TEXT
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_mi (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_mk
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -968,10 +1042,12 @@ CREATE TABLE IF NOT EXISTS uls_mk
 	"incumbent_relocation"	TEXT
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_mk (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_mp
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -987,10 +1063,12 @@ CREATE TABLE IF NOT EXISTS uls_mp
 	"whitespace_ind"	TEXT
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_mp (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_mw
 (
 	"record_type"	TEXT	NOT NULL,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -1005,10 +1083,12 @@ CREATE TABLE IF NOT EXISTS uls_mw
 	"status_date"	TIMESTAMP
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_mw (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_op
 (
 	"record_type"	TEXT	NOT NULL,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"callsign"	TEXT,
@@ -1019,10 +1099,12 @@ CREATE TABLE IF NOT EXISTS uls_op
 	"status_date"	TIMESTAMP
 );
 
+CREATE INDEX IF NOT EXISTS idx_callsign on uls_op (callsign);
+
 CREATE TABLE IF NOT EXISTS uls_pa
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"callsign"	TEXT,
@@ -1047,10 +1129,12 @@ CREATE TABLE IF NOT EXISTS uls_pa
 	"link_end_date"	TIMESTAMP
 );
 
+CREATE INDEX IF NOT EXISTS idx_callsign on uls_pa (callsign);
+
 CREATE TABLE IF NOT EXISTS uls_pc
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -1074,10 +1158,12 @@ CREATE TABLE IF NOT EXISTS uls_pc
 	"status_date"	TIMESTAMP
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_pc (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_ra
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -1096,10 +1182,12 @@ CREATE TABLE IF NOT EXISTS uls_ra
 	"status_date"	TIMESTAMP
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_ra (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_rc
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -1114,10 +1202,12 @@ CREATE TABLE IF NOT EXISTS uls_rc
 	"status_date"	TIMESTAMP
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_rc (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_re
 (
 	"record_type"	TEXT	NOT NULL,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"reason"	TEXT
@@ -1126,7 +1216,7 @@ CREATE TABLE IF NOT EXISTS uls_re
 CREATE TABLE IF NOT EXISTS uls_ri
 (
 	"record_type"	TEXT	NOT NULL,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"entity_type"	TEXT	NOT NULL,
@@ -1142,7 +1232,7 @@ CREATE TABLE IF NOT EXISTS uls_ri
 CREATE TABLE IF NOT EXISTS uls_rz
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -1153,10 +1243,12 @@ CREATE TABLE IF NOT EXISTS uls_rz
 	"receive_zone"	TEXT
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_rz (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_sc
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"callsign"	TEXT,
@@ -1166,10 +1258,12 @@ CREATE TABLE IF NOT EXISTS uls_sc
 	"status_date"	TIMESTAMP
 );
 
+CREATE INDEX IF NOT EXISTS idx_callsign on uls_sc (callsign);
+
 CREATE TABLE IF NOT EXISTS uls_se
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -1212,10 +1306,12 @@ CREATE TABLE IF NOT EXISTS uls_se
 	"description_of_other"	TEXT
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_se (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_sf
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"callsign"	TEXT,
@@ -1227,10 +1323,12 @@ CREATE TABLE IF NOT EXISTS uls_sf
 	"status_date"	TIMESTAMP
 );
 
+CREATE INDEX IF NOT EXISTS idx_callsign on uls_sf (callsign);
+
 CREATE TABLE IF NOT EXISTS uls_sg
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -1246,10 +1344,12 @@ CREATE TABLE IF NOT EXISTS uls_sg
 	"status_date"	TIMESTAMP
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_sg (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_sh
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"callsign"	TEXT,
@@ -1277,10 +1377,12 @@ CREATE TABLE IF NOT EXISTS uls_sh
 	"required_cat_e"	TEXT
 );
 
+CREATE INDEX IF NOT EXISTS idx_callsign on uls_sh (callsign);
+
 CREATE TABLE IF NOT EXISTS uls_si
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -1288,10 +1390,12 @@ CREATE TABLE IF NOT EXISTS uls_si
 	"action_performed"	TEXT
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_si (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_sr
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -1313,10 +1417,12 @@ CREATE TABLE IF NOT EXISTS uls_sr
 	"vessel_capacity"	NUMERIC
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_sr (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_st
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -1331,10 +1437,12 @@ CREATE TABLE IF NOT EXISTS uls_st
 	"status_date"	TIMESTAMP
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_st (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_sv
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -1342,10 +1450,12 @@ CREATE TABLE IF NOT EXISTS uls_sv
 	"voyage_description"	TEXT
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_sv (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_ta
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"pro_forma"	TEXT,
@@ -1405,7 +1515,7 @@ CREATE TABLE IF NOT EXISTS uls_ta
 CREATE TABLE IF NOT EXISTS uls_tl
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -1418,10 +1528,12 @@ CREATE TABLE IF NOT EXISTS uls_tl
 	"square_kilometers"	NUMERIC
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_tl (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_ua
 (
 	"record_type"	TEXT	NOT NULL,
-	"unique_system_identifier"	NUMERIC,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -1433,10 +1545,12 @@ CREATE TABLE IF NOT EXISTS uls_ua
 	"claiming_unserved_area"	TEXT
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_ua (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_vc
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"request_sequence"	INTEGER,
@@ -1446,7 +1560,7 @@ CREATE TABLE IF NOT EXISTS uls_vc
 CREATE TABLE IF NOT EXISTS uls_lc
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -1455,10 +1569,12 @@ CREATE TABLE IF NOT EXISTS uls_lc
 	"a_ls_term"	TEXT
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_lc (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_ld
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"lease_id"	TEXT,
@@ -1471,7 +1587,7 @@ CREATE TABLE IF NOT EXISTS uls_ld
 CREATE TABLE IF NOT EXISTS uls_ll
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -1479,10 +1595,12 @@ CREATE TABLE IF NOT EXISTS uls_ll
 	"unique_system_identifier_2"	NUMERIC
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_ll (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_l3
 (
 	"record_type"	TEXT	NOT NULL,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -1535,10 +1653,12 @@ CREATE TABLE IF NOT EXISTS uls_l3
 	"status_date"	TIMESTAMP
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_l3 (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_l4
 (
 	"record_type"	TEXT	NOT NULL,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -1556,10 +1676,12 @@ CREATE TABLE IF NOT EXISTS uls_l4
 	"status_date"	TIMESTAMP
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_l4 (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_o2
 (
 	"record_type"	TEXT	NOT NULL,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"callsign"	TEXT,
@@ -1572,10 +1694,12 @@ CREATE TABLE IF NOT EXISTS uls_o2
 	"status_date"	TIMESTAMP
 );
 
+CREATE INDEX IF NOT EXISTS idx_callsign on uls_o2 (callsign);
+
 CREATE TABLE IF NOT EXISTS uls_l5
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"call_sign"	TEXT,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
@@ -1588,10 +1712,12 @@ CREATE TABLE IF NOT EXISTS uls_l5
 	"status_date"	TIMESTAMP
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_l5 (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_l6
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY,
 	"callsign"	TEXT,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
@@ -1606,10 +1732,12 @@ CREATE TABLE IF NOT EXISTS uls_l6
 	"status_date"	TIMESTAMP
 );
 
+CREATE INDEX IF NOT EXISTS idx_callsign on uls_l6 (callsign);
+
 CREATE TABLE IF NOT EXISTS uls_a3
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -1648,10 +1776,12 @@ CREATE TABLE IF NOT EXISTS uls_a3
 	"status_date"	TIMESTAMP
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_a3 (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_f3
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -1683,10 +1813,12 @@ CREATE TABLE IF NOT EXISTS uls_f3
 	"status_date"	TIMESTAMP
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_f3 (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_f4
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -1707,10 +1839,12 @@ CREATE TABLE IF NOT EXISTS uls_f4
 	"status_date"	TIMESTAMP
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_f4 (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_f5
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"call_sign"	TEXT,
 	"lease_id"	TEXT,
 	"ls_site_link_id"	NUMERIC,
@@ -1724,10 +1858,12 @@ CREATE TABLE IF NOT EXISTS uls_f5
 	"status_date"	TIMESTAMP
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_f5 (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_f6
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"callsign"	TEXT,
@@ -1745,10 +1881,12 @@ CREATE TABLE IF NOT EXISTS uls_f6
 	"status_date"	TIMESTAMP
 );
 
+CREATE INDEX IF NOT EXISTS idx_callsign on uls_f6 (callsign);
+
 CREATE TABLE IF NOT EXISTS uls_p2
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"callsign"	TEXT,
@@ -1773,10 +1911,12 @@ CREATE TABLE IF NOT EXISTS uls_p2
 	"status_date"	TIMESTAMP
 );
 
+CREATE INDEX IF NOT EXISTS idx_callsign on uls_p2 (callsign);
+
 CREATE TABLE IF NOT EXISTS uls_tp
 (
 	"record_type"	TEXT,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"ebf_number"	TEXT,
 	"call_sign"	TEXT,
@@ -1791,10 +1931,12 @@ CREATE TABLE IF NOT EXISTS uls_tp
 	"status_date"	TIMESTAMP
 );
 
+CREATE INDEX IF NOT EXISTS idx_call_sign on uls_tp (call_sign);
+
 CREATE TABLE IF NOT EXISTS uls_ec
 (
 	"record_type"	TEXT	NOT NULL,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"callsign"	TEXT,
 	"ecip_flag"	TEXT,
@@ -1803,10 +1945,12 @@ CREATE TABLE IF NOT EXISTS uls_ec
 	"holding_period_end"	TEXT
 );
 
+CREATE INDEX IF NOT EXISTS idx_callsign on uls_ec (callsign);
+
 CREATE TABLE IF NOT EXISTS uls_if
 (
 	"record_type"	TEXT	NOT NULL,
-	"unique_system_identifier"	NUMERIC	NOT NULL,
+	"unique_system_identifier"	NUMERIC PRIMARY KEY	NOT NULL,
 	"uls_file_number"	TEXT,
 	"item_type"	TEXT,
 	"iorn_operation_begin_date"	TEXT,

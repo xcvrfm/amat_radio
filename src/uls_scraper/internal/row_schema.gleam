@@ -8,6 +8,14 @@ pub type RowSchema {
   )
 }
 
+pub fn has_call_sign_column(row: RowSchema) -> Bool {
+  case row.column {
+    "\"call_sign\"" -> True
+    "\"callsign\"" -> True
+    _ -> False
+  }
+}
+
 /// Convert a SchemaRow to String
 pub fn to_string(cr: RowSchema) -> String {
   let maybe_pkey = case cr.column {

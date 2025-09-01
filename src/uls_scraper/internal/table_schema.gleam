@@ -1,6 +1,7 @@
 import file_streams/file_stream
 import gleam/list
 import gleam/result
+import gleam/string
 import uls_scraper/internal/errors
 import uls_scraper/internal/row_schema
 import x10/x10_result
@@ -19,6 +20,26 @@ pub fn set_name(table_schema: TableSchema, table_name) {
 
 pub fn append_row(table_schema: TableSchema, row: row_schema.RowSchema) {
   TableSchema(table_schema.table_name, list.prepend(table_schema.rows, row))
+}
+
+fn gen_call_sign_index(table_schema: TableSchema) -> String {
+  case
+    list.find(table_schema.rows, fn(row) {
+      row_schema.has_call_sign_column(row)
+    })
+  {
+    Ok(row) -> {
+      let callsign = string.replace(row.column, each: "\"", with: "")
+      "CREATE INDEX IF NOT EXISTS idx_"
+      <> callsign
+      <> " on "
+      <> table_schema.table_name
+      <> " ("
+      <> callsign
+      <> ");\n\n"
+    }
+    Error(_) -> ""
+  }
 }
 
 pub fn write_table_schema(
@@ -48,6 +69,9 @@ pub fn write_table_schema(
   use _ <-
     file_stream.write_chars(out_stream, ");\n\n")
     |> x10_result.use_try_map_error(errors.IOError)
-  // todo indexes
+  use _ <-
+    file_stream.write_chars(out_stream, gen_call_sign_index(table_schema))
+    |> x10_result.use_try_map_error(errors.IOError)
+
   Ok(Nil)
 }
